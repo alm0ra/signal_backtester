@@ -5,12 +5,12 @@ from typing_extensions import Literal
 class InputValidatorBase(BaseModel):
     cash: int = Field(gt=0)
     commission : float = Field(gt=0, lt=0.1)
-    stoploss: float = Field(gt=0)
+    stop_loss: float = Field(gt=0)
     take_profit: float = Field(gt=0)
     trailing_stop: float = Field(gt=0)
     percent_of_portfolio: int = Field(gt=0, lt=100)
-
-    strategy_name:Union[
+    dataset:str
+    strategy:Union[
         Literal["two_side_sl_tp_reversed"],
         Literal["two_side_sl_trailing_reversed"],
         Literal["one_side_sell_sl_tp"],
@@ -18,9 +18,7 @@ class InputValidatorBase(BaseModel):
         Literal["one_side_buy_sl_trailing"],
         Literal["one_side_sell_sl_trailing"],
     ]
-    title:str
-    description:str
-    dataset:str
+    
     time_frame : Union[
         Literal["1m"],
         Literal["5m"],
