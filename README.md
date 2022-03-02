@@ -4,7 +4,7 @@
 
 
 # Signal Backtester
- a small repo work with Backtesting Package only backtest input signals .
+ a small repo Based on  [Backtesting](https://pypi.org/project/Backtesting/) Lib. only backtest input signals .
  easiest way to backtest your generated signal
 
 ## Quick Start
