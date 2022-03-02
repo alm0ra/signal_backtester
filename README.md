@@ -1,3 +1,8 @@
+![Alt text](logo.png)
+![GitHub top language](https://img.shields.io/github/languages/top/xibalbas/signal_backtester)
+![GitHub repo size](https://img.shields.io/github/repo-size/xibalbas/signal_backtester)
+
+
 # Signal Backtester
  a small repo work with Backtesting Package only backtest input signals .
  easiest way to backtest your generated signal
