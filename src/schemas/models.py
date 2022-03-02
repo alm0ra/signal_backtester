@@ -9,7 +9,15 @@ class InputValidatorBase(BaseModel):
     take_profit: float = Field(gt=0)
     trailing_stop: float = Field(gt=0)
     percent_of_portfolio: int = Field(gt=0, lt=100)
-    strategy_name:str
+
+    strategy_name:Union[
+        Literal["two_side_sl_tp_reversed"],
+        Literal["two_side_sl_trailing_reversed"],
+        Literal["one_side_sell_sl_tp"],
+        Literal["one_side_buy_sl_tp"],
+        Literal["one_side_buy_sl_trailing"],
+        Literal["one_side_sell_sl_trailing"],
+    ]
     title:str
     description:str
     dataset:str
