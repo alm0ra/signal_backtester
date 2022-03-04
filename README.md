@@ -24,7 +24,7 @@ from signal_backtester import SignalBacktester
 # columns should include "Open, High, Low, Close, Volume, signal"
 
 backtest = SignalBacktester(
-                dataset="/home/xibalbas/samle.csv",
+                dataset="/home/xibalbas/sample.csv",
                 strategy='two_side_sl_tp_reversed',
                 cash=1000,
                 commission=0.0005,  # equal 0.05 %
