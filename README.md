@@ -103,3 +103,9 @@ you must have this columns in your dataset
 - signal
 
 ![Alt text](sample_dataset.png)
+
+
+
+
+# License
+`signal_backtester` is freely available under the MIT [license](https://github.com/xibalbas/signal_backtester/blob/master/LICENSE).
