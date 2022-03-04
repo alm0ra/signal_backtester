@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="signal_backtester",
-    version="1.0.2",
+    version="1.0.3",
     author="Ali moradi",
     author_email="ali.mrd318@gmail.com",
     description="tiny library for fast backtest on generated signals",

@@ -60,7 +60,7 @@ class SignalBacktester:
         )
 
         report = backtest.run(params=params)
-        report_path =f'{self.out_path}./final_report.csv'
+        report_path =f'{self.out_path}/final_report.csv'
         report.to_csv(report_path)
 
         backtest.plot(
