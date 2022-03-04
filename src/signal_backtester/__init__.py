@@ -1,4 +1,4 @@
-from core.runner import SignalBacktester
+from signal_backtester.core.runner import SignalBacktester
 
 
 __all__ = ['SignalBacktester']
