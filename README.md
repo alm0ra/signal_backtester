@@ -28,6 +28,7 @@ pip install signal-backtester
 ```
 
 ## Usage
+
 ```python
 from signal_backtester import SignalBacktester
 
@@ -49,6 +50,8 @@ backtest = SignalBacktester(
 
 backtest.run()
 ```
+
+* also you can see this [example](https://github.com/xibalbas/signal_backtester/tree/master/examples/sample2) for how generate signal . and how backtest generated signal
 
 # strategy
 
