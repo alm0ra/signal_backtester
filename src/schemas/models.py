@@ -1,6 +1,10 @@
+import imp
 from pydantic import BaseModel, Field, root_validator
 from typing import Union
 from typing_extensions import Literal
+import pandas as pd 
+
+
 
 class InputValidatorBase(BaseModel):
     cash: int = Field(gt=0)
@@ -40,8 +44,26 @@ class InputValidatorBase(BaseModel):
     ]
     @root_validator(pre=True)
     def do_validation(cls, values):
-        # TODO do validation of dataset feild
-        # TODO check if dataset exist
-        # TODO read dataset and check if has this columns 
-        # Date Open High Low Close Volume Signal
-        pass
+        try:
+            df = pd.read_csv(values['dataset'])
+            
+            if 'Date' not in df.columns:
+                raise ValueError('[dataset must contain Date column]')
+            if 'Open' not in df.columns:
+                raise ValueError('[dataset must contain Open column]')
+            if 'High' not in df.columns:
+                raise ValueError('[dataset must contain High column]')
+            if 'Low' not in df.columns:
+                raise ValueError('[dataset must contain Low column]')
+            if 'Close' not in df.columns:
+                raise ValueError('[dataset must contain Close column]')
+            if 'Volume' not in df.columns:
+                raise ValueError('[dataset must contain Volume column]')
+            if 'signal' not in df.columns:
+                raise ValueError('[dataset must contain signal column]')
+            
+            
+        except FileNotFoundError:
+            raise ValueError('[dataset] file Does not exist')
+        
+        return values
