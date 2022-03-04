@@ -1,8 +1,8 @@
-from signal_backtester.core.runner import SignalBacktester
+from signal_backtester import SignalBacktester
 
 
 
-dataset_address = "/home/ali/project/signal_backtester/examples/sample1/sample_dataset.csv"
+dataset_address = "./sample_dataset.csv"
 
 backtest = SignalBacktester(dataset=dataset_address,
                             strategy='two_side_sl_tp_reversed',
