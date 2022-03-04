@@ -105,6 +105,9 @@ you must have this columns in your dataset
 ![Alt text](sample_dataset.png)
 
 
+# Contributing
+
+see contributing guide [here](https://github.com/xibalbas/signal_backtester/blob/master/CONTRIBUTING.md)
 
 
 # License
