@@ -4,7 +4,7 @@
 ![PyPI](https://img.shields.io/pypi/v/signal-backtester)
 
 # Signal Backtester
- a small repo Based on  [Backtesting](https://pypi.org/project/Backtesting/) Lib .  
+ a tiny backtester Based on  [Backtesting](https://pypi.org/project/Backtesting/) Lib .  
  easiest way to backtest your generated signal.
 just need a csv file contain candleStick informations. OHLCV + signal
 see [Dataset Structure](https://github.com/xibalbas/signal_backtester#strategy) for more information 
