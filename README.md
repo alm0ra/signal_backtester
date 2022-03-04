@@ -23,15 +23,18 @@ from signal_backtester import SignalBacktester
 # address of your dataset file 
 # columns should include "Open, High, Low, Close, Volume, signal"
 
-backtest = SignalBacktester(dataset="/home/xibalbas/samle.csv",
-                            strategy='two_side_sl_tp_reversed',
-                            cash=1000,
-                            commission=0.0005,
-                            percent_of_portfolio=99,
-                            stop_loss=1,
-                            take_profit=10,
-                            trailing_stop=3,
-                            time_frame='30m')
+backtest = SignalBacktester(
+                dataset="/home/xibalbas/samle.csv",
+                strategy='two_side_sl_tp_reversed',
+                cash=1000,
+                commission=0.0005,  # equal 0.05 %
+                percent_of_portfolio=99,
+                stop_loss=1,
+                take_profit=10,
+                trailing_stop=3,    # if you are using trailing stop
+                time_frame='30m', 
+                output_path='.'     # path of result files
+            )
 
 backtest.run()
 ```
