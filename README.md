@@ -53,24 +53,36 @@ backtest.run()
 available strategy to use are :
 
 - **two_side_sl_tp_reversed**
+
+
 this strategy open position in both side `buy` and `sell`. it close position with `stoploss` or `take profit`
 also if you have an open `buy position` and you give a sell signal we close your last position an open new one
 
 - **two_side_sl_trailing_reversed**
+
+
 this strategy open position in both side `buy` and `sell`. it close position with `stoploss`. your stop loss is dynamic if price change your stop loss will change .
 also if you have an open `buy position` and you give a sell signal we close your last position an open new one
 
 
 - **one_side_buy_sl_tp**
+
+
 this strategy open position just in one side `buy`. it close position with `stoploss` or `take profit`
 
 - **one_side_sell_sl_tp**
+
+
 this strategy open position just in one side `sell`. it close position with `stoploss` or `take profit`
 
 - **one_side_buy_sl_trailing**
+
+
 this strategy open position just in one side `buy`.  it close position with `stoploss`. your stop loss is dynamic if price change your stop loss will change .
 
 - **one_side_sell_sl_trailing**
+
+
 this strategy open position just in one side `sell`.  it close position with `stoploss`. your stop loss is dynamic if price change your stop loss will change .
 
 
