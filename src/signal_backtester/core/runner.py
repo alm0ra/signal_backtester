@@ -1,4 +1,7 @@
-from signal_backtester.base.base_backtester import BackTestingBackTest, BackTestingDataset
+from signal_backtester.base.base_backtester import (
+    BackTestingBackTest,
+    BackTestingDataset,
+)
 from signal_backtester.core.picker import STRATEGIES
 from signal_backtester.schemas.models import InputValidatorBase
 from signal_backtester.core.operations import prepare_data
@@ -6,12 +9,23 @@ import pandas as pd
 
 
 class SignalBacktester:
-    """Backtest of signals 
-    
-    """
-    def __init__(self, dataset, strategy, cash, commission, percent_of_portfolio, data_name='data', stop_loss=None, take_profit=None,
-               trailing_stop=None, time_frame='5m', output_path='.'):
-        
+    """Backtest of signals"""
+
+    def __init__(
+        self,
+        dataset,
+        strategy,
+        cash,
+        commission,
+        percent_of_portfolio,
+        data_name="data",
+        stop_loss=None,
+        take_profit=None,
+        trailing_stop=None,
+        time_frame="5m",
+        output_path=".",
+    ):
+
         self.fields = InputValidatorBase(
             cash=cash,
             commission=commission,
@@ -25,25 +39,25 @@ class SignalBacktester:
         )
         self.data_name = data_name
         self.out_path = output_path
-    
+
     def read_dataset(self):
         return pd.read_csv(self.fields.dataset)
-    
+
     def run(self):
-        
+
         dataframe = self.read_dataset()
         dataframe = prepare_data(self.fields.time_frame, dataframe)
-        
+
         def SIGNAL():
             return dataframe.signal
 
         params = {
-            'stop_loss': self.fields.stop_loss,
-            'take_profit': self.fields.take_profit,
-            'stop_trailing_amount': self.fields.trailing_stop,
-            'indicator': SIGNAL,
-            'order_report_path': f'{self.out_path}/order_report.csv',
-            'percent_of_portfolio': self.fields.percent_of_portfolio,
+            "stop_loss": self.fields.stop_loss,
+            "take_profit": self.fields.take_profit,
+            "stop_trailing_amount": self.fields.trailing_stop,
+            "indicator": SIGNAL,
+            "order_report_path": f"{self.out_path}/order_report.csv",
+            "percent_of_portfolio": self.fields.percent_of_portfolio,
         }
 
         datasets = [
@@ -60,11 +74,11 @@ class SignalBacktester:
         )
 
         report = backtest.run(params=params)
-        report_path =f'{self.out_path}/final_report.csv'
+        report_path = f"{self.out_path}/final_report.csv"
         report.to_csv(report_path)
 
         backtest.plot(
-            filename=f'{self.out_path}/final_report.html',
+            filename=f"{self.out_path}/final_report.html",
             plot_equity=True,
             plot_return=True,
             plot_pl=True,
@@ -76,6 +90,5 @@ class SignalBacktester:
             resample=True,
             reverse_indicators=False,
             show_legend=True,
-            open_browser=False
+            open_browser=False,
         )
-

@@ -3,13 +3,13 @@ import pandas as pd
 
 
 class BackTestingDataset:
-  name = None
-  data = None
-  backtest = None
+    name = None
+    data = None
+    backtest = None
 
-  def __init__(self, name, data):
-    self.name = name
-    self.data = data
+    def __init__(self, name, data):
+        self.name = name
+        self.data = data
 
 
 class BackTestingBackTest:
@@ -17,11 +17,7 @@ class BackTestingBackTest:
 
     def __init__(self, datasets, strategy, **kwargs):
         for dataset in datasets:
-            dataset.backtest = Backtest(
-                dataset.data,
-                strategy=strategy,
-                **kwargs
-            )
+            dataset.backtest = Backtest(dataset.data, strategy=strategy, **kwargs)
         self.datasets = datasets
 
     def run(self, **kwargs):
@@ -34,10 +30,7 @@ class BackTestingBackTest:
         return True
 
     def optimize(self, **kwargs):
-        optimize_args = {
-            "return_heatmap": True,
-            **kwargs
-        }
+        optimize_args = {"return_heatmap": True, **kwargs}
         heatmaps = []
 
         for dataset in self.datasets:
