@@ -9,7 +9,19 @@ import pandas as pd
 
 
 class SignalBacktester:
-    """Backtest of signals"""
+    """Signal Baktester moudle
+        it uses Backtesting Lib (https://kernc.github.io/backtesting.py/)
+        you must have this columns in your dataset
+            - Date          (timestamp is prefered)
+            - Open
+            - High
+            - Low
+            - Close
+            - Volume
+            - signal        (1 for sell signal)(2 for buy signal)
+        
+    
+    """
 
     def __init__(
         self,
