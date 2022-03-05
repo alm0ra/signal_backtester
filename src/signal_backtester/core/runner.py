@@ -25,7 +25,7 @@ class SignalBacktester:
         time_frame="5m",
         output_path=".",
     ):
-
+        # validate input fields with a pydantic model
         self.fields = InputValidatorBase(
             cash=cash,
             commission=commission,
@@ -44,10 +44,11 @@ class SignalBacktester:
         return pd.read_csv(self.fields.dataset)
 
     def run(self):
-
+        # read dataset and prepare data for backtesting lib
         dataframe = self.read_dataset()
         dataframe = prepare_data(self.fields.time_frame, dataframe)
 
+        # define signal column as an indicator
         def SIGNAL():
             return dataframe.signal
 
@@ -72,11 +73,13 @@ class SignalBacktester:
             exclusive_orders=True,
             trade_on_close=False,
         )
-
+        
+        # final csv report
         report = backtest.run(params=params)
         report_path = f"{self.out_path}/final_report.csv"
         report.to_csv(report_path)
-
+        
+        # final html report
         backtest.plot(
             filename=f"{self.out_path}/final_report.html",
             plot_equity=True,

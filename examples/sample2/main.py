@@ -1,8 +1,9 @@
 from signal_backtester import SignalBacktester
 
-
+# dataset addres
 dataset_address = "./final_dataset.csv"
 
+# make an object with your backtest config
 backtest = SignalBacktester(
     dataset=dataset_address,
     strategy="two_side_sl_tp_reversed",
@@ -15,4 +16,6 @@ backtest = SignalBacktester(
     output_path="./result",  # path of result files
 )
 
+
+# run your backtest
 backtest.run()

@@ -4,6 +4,15 @@ import pandas as pd
 
 
 class BacktestingBaseStrategy(Strategy):
+    """
+        Base Strategy class 
+            it prepare a final report of orders by 'save_trades' module
+                a csv report contain of some information of each trade 
+                will prepare here
+            also it determines when strategy stops and how many candle
+             pass from next() function
+             
+    """
     def init(self):
         super().init()
         self.order_csv_report = None
@@ -13,7 +22,7 @@ class BacktestingBaseStrategy(Strategy):
         print(txt)
 
     def save_trades(self, closed_trades):
-
+        # make a dataframe
         self.order_csv_report = pd.DataFrame(
             columns=[
                 "entry_price",
@@ -28,6 +37,7 @@ class BacktestingBaseStrategy(Strategy):
                 "status",
             ]
         )
+        # append information od each trades
         for trade in closed_trades:
             pl_pct = trade.pl_pct * 100
             pl_pct_round = round(pl_pct, 2)
@@ -56,7 +66,7 @@ class BacktestingBaseStrategy(Strategy):
             self.order_csv_report = self.order_csv_report.append(
                 dict, ignore_index=True
             )
-
+        # make an out put
         self.order_csv_report.to_csv(self.order_report_path, index=False)
 
     def next(self):
@@ -66,4 +76,5 @@ class BacktestingBaseStrategy(Strategy):
 
     @abstractmethod
     def stop(self):
+        # this method call when backtest is finished
         pass
