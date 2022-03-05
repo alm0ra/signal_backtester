@@ -4,6 +4,7 @@ from typing_extensions import Literal
 import pandas as pd
 
 
+
 class InputValidatorBase(BaseModel):
     cash: int = Field(gt=0)
     commission: float = Field(gt=0, lt=0.1)
@@ -26,40 +27,21 @@ class InputValidatorBase(BaseModel):
         Literal["5m"],
         Literal["15m"],
         Literal["30m"],
-        Literal["45m"],
         Literal["1h"],
-        Literal["2h"],
-        Literal["3h"],
         Literal["4h"],
-        Literal["8h"],
         Literal["1d"],
-        Literal["2d"],
-        Literal["4d"],
-        Literal["8d"],
-        Literal["1w"],
-        Literal["2w"],
-        Literal["1M"],
     ]
 
     @root_validator(pre=True)
     def do_validation(cls, values):
         try:
             df = pd.read_csv(values["dataset"])
-
-            if "Date" not in df.columns:
-                raise ValueError("[dataset must contain Date column]")
-            if "Open" not in df.columns:
-                raise ValueError("[dataset must contain Open column]")
-            if "High" not in df.columns:
-                raise ValueError("[dataset must contain High column]")
-            if "Low" not in df.columns:
-                raise ValueError("[dataset must contain Low column]")
-            if "Close" not in df.columns:
-                raise ValueError("[dataset must contain Close column]")
-            if "Volume" not in df.columns:
-                raise ValueError("[dataset must contain Volume column]")
-            if "signal" not in df.columns:
-                raise ValueError("[dataset must contain signal column]")
+            
+            available_columns = ["Date","Open","High","Low","Close","Volume","signal"]
+            
+            for column in available_columns:
+                if column not in df.columns:
+                    raise ValueError(f"[dataset must contain {column} column]")
 
         except FileNotFoundError:
             raise ValueError("[dataset] file Does not exist")
