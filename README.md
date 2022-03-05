@@ -7,10 +7,10 @@
  a tiny backtester Based on  [Backtesting](https://pypi.org/project/Backtesting/) Lib .  
  easiest way to backtest your generated signal.
 just need a csv file contain candleStick informations. OHLCV + signal
-see [Dataset Structure](https://github.com/xibalbas/signal_backtester#strategy) for more information 
+see [Dataset Structure](https://github.com/xibalbas/signal_backtester#dataset-structure) for more information 
 
 # why ?
-some time writing good backtest for a strategy is not too easy . and you may had some challenge with backtest libraries.
+some time writing good backtest for a strategy is not too easy . and you may have some challenge with backtest libraries.
 
 so i decided to make a seprate repo for backtesting in easiest way.
 what you need is a csv file contain `signal` column . for buy signal you should put `2`, and for sell signal you put `1`.
