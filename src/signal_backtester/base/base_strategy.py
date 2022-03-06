@@ -5,21 +5,18 @@ import pandas as pd
 
 class BacktestingBaseStrategy(Strategy):
     """
-        Base Strategy class 
-            it prepare a final report of orders by 'save_trades' module
-                a csv report contain of some information of each trade 
-                will prepare here
-            also it determines when strategy stops and how many candle
-             pass from next() function
-             
+    Base Strategy class
+        it prepare a final report of orders by 'save_trades' module
+            a csv report contain of some information of each trade
+            will prepare here
+        also it determines when strategy stops and how many candle
+         pass from next() function
     """
+
     def init(self):
         super().init()
         self.order_csv_report = None
         self.dataframe_count = len(self.data)
-
-    def log(self, txt):
-        print(txt)
 
     def save_trades(self, closed_trades):
         # make a dataframe
@@ -41,7 +38,7 @@ class BacktestingBaseStrategy(Strategy):
         for trade in closed_trades:
             pl_pct = trade.pl_pct * 100
             pl_pct_round = round(pl_pct, 2)
-            dict = {
+            order_report = {
                 "entry_price": trade.entry_price,
                 "entry_time": trade.entry_time,
                 "exit_price": trade.exit_price,
@@ -52,19 +49,19 @@ class BacktestingBaseStrategy(Strategy):
                 "value": trade.value,
             }
             if trade.is_long:
-                dict["side"] = "BUY"
+                order_report["side"] = "BUY"
             if trade.is_short:
-                dict["side"] = "SELL"
+                order_report["side"] = "SELL"
 
             if trade.tp == trade.exit_price:
-                dict["status"] = "TP trigger"
+                order_report["status"] = "TP trigger"
             elif trade.sl == trade.exit_price:
-                dict["status"] = "SL trigger"
+                order_report["status"] = "SL trigger"
             else:
-                dict["status"] = "closed"
+                order_report["status"] = "closed"
 
             self.order_csv_report = self.order_csv_report.append(
-                dict, ignore_index=True
+                order_report, ignore_index=True
             )
         # make an out put
         self.order_csv_report.to_csv(self.order_report_path, index=False)

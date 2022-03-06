@@ -1,5 +1,13 @@
-from signal_backtester.strategies.one_sided import *
-from signal_backtester.strategies.two_sided import *
+from signal_backtester.strategies.one_sided import (
+    BuyOneSidedSlTpCloseOpposite,
+    SellOneSidedSlTpCloseOpposite,
+    BuyOneSidedSlTrailingCloseOpposite,
+    SellOneSidedSlTrailingCloseOpposite,
+)
+from signal_backtester.strategies.two_sided import (
+    TwoSidedSlTpReverse,
+    TwoSidedSlTrailingReverse,
+)
 
 STRATEGIES = {
     # two-sided strategies

@@ -9,7 +9,9 @@ import pandas as pd
 
 
 class SignalBacktester:
-    """Signal Baktester moudle
+    """
+    Signal Baktester moudle
+    
         it uses Backtesting Lib (https://kernc.github.io/backtesting.py/)
         you must have this columns in your dataset
             - Date          (timestamp is prefered)
@@ -19,8 +21,6 @@ class SignalBacktester:
             - Close
             - Volume
             - signal        (1 for sell signal)(2 for buy signal)
-        
-    
     """
 
     def __init__(
@@ -85,12 +85,12 @@ class SignalBacktester:
             exclusive_orders=True,
             trade_on_close=False,
         )
-        
+
         # final csv report
         report = backtest.run(params=params)
         report_path = f"{self.out_path}/final_report.csv"
         report.to_csv(report_path)
-        
+
         # final html report
         backtest.plot(
             filename=f"{self.out_path}/final_report.html",

@@ -4,15 +4,15 @@ from typing_extensions import Literal
 import pandas as pd
 
 
-
 class InputValidatorBase(BaseModel):
     """
-        Validate input fields model
-            validation of dataset will checks:
-                - if dataset is csv file
-                - if dataset exist
-                - if some column exist in dataset
+    Validate input fields model
+        validation of dataset will checks:
+            - if dataset is csv file
+            - if dataset exist
+            - if some column exist in dataset
     """
+
     cash: int = Field(gt=0)
     commission: float = Field(gt=0, lt=0.1)
     stop_loss: float = Field(gt=0)
@@ -43,15 +43,23 @@ class InputValidatorBase(BaseModel):
     def do_validation(cls, values):
         try:
             # check if dataset is a csv file
-            if '.csv' not in values["dataset"]:
+            if ".csv" not in values["dataset"]:
                 raise ValueError("[dataset] file should be a .csv file")
-            
+
             # check if exist and you can make a dataframe
             df = pd.read_csv(values["dataset"])
-            
+
             # check if column exist
-            available_columns = ["Date","Open","High","Low","Close","Volume","signal"]
-            
+            available_columns = [
+                "Date",
+                "Open",
+                "High",
+                "Low",
+                "Close",
+                "Volume",
+                "signal",
+            ]
+
             for column in available_columns:
                 if column not in df.columns:
                     raise ValueError(f"[dataset must contain {column} column]")

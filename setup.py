@@ -22,9 +22,6 @@ setuptools.setup(
     ],
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
-    install_requires = [
-        'backtesting',
-        'pydantic'
-        ],
+    install_requires=["backtesting", "pydantic"],
     python_requires=">=3.7",
 )

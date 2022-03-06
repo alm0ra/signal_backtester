@@ -14,11 +14,12 @@ class BackTestingDataset:
 
 class BackTestingBackTest:
     """
-        Backtesting class
-            written for backtest several dataset on a strategy
-            it run engine of backtest on datasets and return a plot
-            also you can optimize your strategy.
+    Backtesting class
+        written for backtest several dataset on a strategy
+        it run engine of backtest on datasets and return a plot
+        also you can optimize your strategy.
     """
+
     datasets = []
 
     def __init__(self, datasets, strategy, **kwargs):
@@ -33,20 +34,19 @@ class BackTestingBackTest:
 
     def plot(self, **kwargs):
         # plot result with backtesing plot module
-        plt = [dataset.backtest.plot(**kwargs) for dataset in self.datasets]
+        [dataset.backtest.plot(**kwargs) for dataset in self.datasets]
         return True
 
-    def optimize(self, **kwargs):
-        """
-            optimization module
-                for optimizing your strategy and get best result and 
-                best config
-        """
-        optimize_args = {"return_heatmap": True, **kwargs}
-        heatmaps = []
+    # def optimize(self, **kwargs):
+    #     """
+    #     optimization module
+    #         for optimizing your strategy,  get best result & best config
+    #     """
+    #     optimize_args = {"return_heatmap": True, **kwargs}
+    #     heatmaps = []
 
-        for dataset in self.datasets:
-            _best_stats, heatmap = dataset.backtest.optimize(**optimize_args)
-            heatmaps.append(heatmap)
+    #     for dataset in self.datasets:
+    #         _best_stats, heatmap = dataset.backtest.optimize(**optimize_args)
+    #         heatmaps.append(heatmap)
 
-        return pd.DataFrame(heatmaps)
+    #     return pd.DataFrame(heatmaps)

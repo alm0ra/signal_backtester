@@ -3,8 +3,10 @@ import pandas as pd
 
 
 def time_format_picker(timeframe):
-    # format of time for each time frame for 
-    # changing time from timestamp 
+    """
+    format of time for each time frame for
+    changing time from timestamp
+    """
     time_dict = {
         "1d": "%Y-%m-%d",
         "4h": "%Y-%m-%d %H:%M",

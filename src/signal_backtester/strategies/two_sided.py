@@ -3,11 +3,12 @@ from signal_backtester.base.base_strategy import BacktestingBaseStrategy
 
 
 class TwoSidedSlTpReverse(BacktestingBaseStrategy):
-    """2 Side (long or short) With Stoploss & TakeProfit and reverse
-    this strategy can open position on 2 side
-    it set stop loss and take profit if hit will close the position
-    if you gave opposit signal it will close your last position and open
-    new position
+    """
+    2 Side (long or short) With Stoploss & TakeProfit and reverse
+        this strategy can open position on 2 side
+        it set stop loss and take profit if hit will close the position
+        if you gave opposit signal it will close your last position and open
+        new position
     """
 
     params = None
@@ -58,10 +59,11 @@ class TwoSidedSlTpReverse(BacktestingBaseStrategy):
 
 
 class TwoSidedSlTrailingReverse(BacktestingBaseStrategy):
-    """2 Side (long or short) trail stop and reverse
-    this strategy can open position on 2 side and it just have a trail stop
-    if you gave opposit signal it will close your last position and open
-    new position
+    """
+    2 Side (long or short) trail stop and reverse
+        this strategy can open position on 2 side and it just have a trail stop
+        if you gave opposit signal it will close your last position and open
+        new position
     """
 
     params = None

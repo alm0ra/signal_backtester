@@ -10,11 +10,11 @@ def cross_EMA_signals(df, fast_period, slow_period):
     # calculate fast and slow of exp moving average
     df["fast"] = talib.EMA(df.Close, timeperiod=fast_period)
     df["slow"] = talib.EMA(df.Close, timeperiod=slow_period)
-    
+
     # loop on dataframe and looking for signals
     for idx in range(len(df)):
         if idx > slow_period:
-            
+
             # Condition 1 (buy signal Cross EMA UP)
             if (
                 df.iloc[idx - 1].fast < df.iloc[idx - 1].slow
@@ -23,7 +23,6 @@ def cross_EMA_signals(df, fast_period, slow_period):
                 # buy signal (change signal amount )
                 signal[idx] = 2
 
-            
             # Condition 2 (sell signal Cross EMA DOWN)
             if (
                 df.iloc[idx - 1].fast > df.iloc[idx - 1].slow
@@ -35,7 +34,6 @@ def cross_EMA_signals(df, fast_period, slow_period):
     # save generated signal time frame
     df["signal"] = signal
     df.to_csv("./final_dataset.csv")
-
 
 
 # run

@@ -3,11 +3,12 @@ from signal_backtester.base.base_strategy import BacktestingBaseStrategy
 
 
 class BuyOneSidedSlTpCloseOpposite(BacktestingBaseStrategy):
-    """1 Side (long) With Stoploss & TakeProfit and reverse
-    this strategy can open position on 2 side
-    it set stop loss and take profit if hit will close the position
-    if you gave opposit signal it will close your last position and open
-    new position
+    """
+    1 Side (long) With Stoploss & TakeProfit and reverse
+        this strategy can open position on 2 side
+        it set stop loss and take profit if hit will close the position
+        if you gave opposit signal it will close your last position and open
+        new position
     """
 
     params = None
@@ -36,11 +37,12 @@ class BuyOneSidedSlTpCloseOpposite(BacktestingBaseStrategy):
 
 
 class SellOneSidedSlTpCloseOpposite(BacktestingBaseStrategy):
-    """1 Side (Short) With Stoploss & TakeProfit and reverse
-    this strategy can open position on 2 side
-    it set stop loss and take profit if hit will close the position
-    if you gave opposit signal it will close your last position and open
-    new position
+    """
+    1 Side (Short) With Stoploss & TakeProfit and reverse
+        this strategy can open position on 2 side
+        it set stop loss and take profit if hit will close the position
+        if you gave opposit signal it will close your last position and open
+        new position
     """
 
     params = None
@@ -69,10 +71,11 @@ class SellOneSidedSlTpCloseOpposite(BacktestingBaseStrategy):
 
 
 class BuyOneSidedSlTrailingCloseOpposite(BacktestingBaseStrategy):
-    """1 Side (long) trail stop and reverse
-    this strategy can open position on 1 side and it just have a trail stop
-    if you gave opposit signal it will close your last position and open
-    new position
+    """
+    1 Side (long) trail stop and reverse
+        this strategy can open position on 1 side and it just have a trail stop
+        if you gave opposit signal it will close your last position and open
+        new position
     """
 
     params = None
@@ -102,10 +105,11 @@ class BuyOneSidedSlTrailingCloseOpposite(BacktestingBaseStrategy):
 
 
 class SellOneSidedSlTrailingCloseOpposite(BacktestingBaseStrategy):
-    """1 Side (short) trail stop and reverse
-    this strategy can open position on 1 side and it just have a trail stop
-    if you gave opposit signal it will close your last position and open
-    new position
+    """
+    1 Side (short) trail stop and reverse
+        this strategy can open position on 1 side and it just have a trail stop
+        if you gave opposit signal it will close your last position and open
+        new position
     """
 
     params = None
