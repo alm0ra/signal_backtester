@@ -1,4 +1,4 @@
-"""
+"""Signal Backtester
 Signal Backtester Package
     more description
 """

@@ -1,3 +1,6 @@
+"""example of backtester
+example of backtester
+"""
 from signal_backtester import SignalBacktester
 
 # dataset addres

@@ -11,7 +11,7 @@ import pandas as pd
 class SignalBacktester:
     """
     Signal Baktester moudle
-    
+
         it uses Backtesting Lib (https://kernc.github.io/backtesting.py/)
         you must have this columns in your dataset
             - Date          (timestamp is prefered)
